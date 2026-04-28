@@ -14,29 +14,41 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Raleway",  sans-serif;
-  --nav-font: "Ubuntu",  sans-serif;
+  --default-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Outfit", sans-serif;
+  --nav-font: "Outfit", sans-serif;
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-:root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #394450; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #223a58; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #136ad5; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+:root {
+  --background-color: #ffffff;
+  /* Background color for the entire website, including individual sections */
+  --default-color: #394450;
+  /* Default color used for the majority of the text content across the entire website */
+  --heading-color: #223a58;
+  /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #136ad5;
+  /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --surface-color: #ffffff;
+  /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+  --contrast-color: #ffffff;
+  /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
-  --nav-color: rgba(255, 255, 255, 0.7);  /* The default color of the main navmenu links */
-  --nav-hover-color: #ffffff; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #394450; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #136ad5; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-color: rgba(255, 255, 255, 0.7);
+  /* The default color of the main navmenu links */
+  --nav-hover-color: #ffffff;
+  /* Applied to main navmenu links when they are hovered over or active */
+  --nav-mobile-background-color: #ffffff;
+  /* Used as the background color for mobile navigation menu */
+  --nav-dropdown-background-color: #ffffff;
+  /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-dropdown-color: #394450;
+  /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-dropdown-hover-color: #136ad5;
+  /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
@@ -56,11 +68,36 @@
 
 .accent-background {
   --background-color: #136ad5;
+  background: linear-gradient(135deg, #136ad5 0%, #2e80e4 100%);
   --default-color: #ffffff;
   --heading-color: #ffffff;
   --accent-color: #acd0fc;
-  --surface-color: #4188de;
+  --surface-color: rgba(255, 255, 255, 0.1);
   --contrast-color: #ffffff;
+}
+
+/* Selection Color */
+::selection {
+  background-color: var(--accent-color);
+  color: #ffffff;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--accent-color), black 15%);
 }
 
 /* Smooth scroll */
@@ -154,15 +191,18 @@ h6 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
-  --background-color: #136ad5;
+  --background-color: rgba(19, 106, 213, 0.85);
   --default-color: #ffffff;
   --heading-color: #ffffff;
   --accent-color: #2e80e4;
   color: var(--default-color);
   background-color: var(--background-color);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   padding: 15px 0;
   transition: all 0.5s;
   z-index: 997;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .header .logo {
@@ -804,11 +844,32 @@ section,
 }
 
 .courses-hero .hero-text h1 {
-  font-size: 3.5rem;
-  font-weight: 700;
-  line-height: 1.2;
+  font-family: var(--heading-font);
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1.1;
   margin-bottom: 1.5rem;
   color: var(--heading-color);
+  letter-spacing: -1px;
+}
+
+.typed-text {
+  color: var(--accent-color);
+  border-right: 3px solid var(--accent-color);
+  padding-right: 5px;
+  animation: typing-cursor 1s step-end infinite;
+}
+
+@keyframes typing-cursor {
+
+  from,
+  to {
+    border-color: transparent
+  }
+
+  50% {
+    border-color: var(--accent-color);
+  }
 }
 
 @media (max-width: 768px) {
@@ -1036,7 +1097,42 @@ section,
 .courses-hero .hero-background .bg-shapes .shape {
   position: absolute;
   border-radius: 50%;
-  background: color-mix(in srgb, var(--accent-color), transparent 95%);
+  background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
+  filter: blur(80px);
+  opacity: 0.15;
+}
+
+.courses-hero .hero-background {
+  background: linear-gradient(135deg, #f5faff 0%, #e0eefc 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.courses-hero .hero-background::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 30%, rgba(19, 106, 213, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(46, 128, 228, 0.15) 0%, transparent 50%);
+  animation: mesh-rotate 20s linear infinite;
+}
+
+@keyframes mesh-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .courses-hero .hero-background .bg-shapes .shape.shape-1 {
@@ -1104,19 +1200,23 @@ section,
 # Featured Courses Section
 --------------------------------------------------------------*/
 .featured-courses .course-card {
-  background: var(--surface-color);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(19, 106, 213, 0.1);
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 5px 25px color-mix(in srgb, var(--default-color), transparent 90%);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   height: 100%;
   display: flex;
   flex-direction: column;
 }
 
 .featured-courses .course-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 40px color-mix(in srgb, var(--default-color), transparent 85%);
+  transform: translateY(-12px);
+  box-shadow: 0 20px 50px rgba(19, 106, 213, 0.2);
+  border-color: var(--accent-color);
 }
 
 .featured-courses .course-image {
@@ -1367,12 +1467,14 @@ section,
 # Course Categories Section
 --------------------------------------------------------------*/
 .course-categories .category-card {
-  background: var(--surface-color);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   border-radius: 12px;
   padding: 30px 20px;
   text-align: center;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border: 1px solid rgba(19, 106, 213, 0.1);
   height: 100%;
   cursor: pointer;
   text-decoration: none;
@@ -1380,8 +1482,9 @@ section,
 }
 
 .course-categories .category-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(19, 106, 213, 0.15);
+  border-color: var(--accent-color);
   text-decoration: none;
 }
 
@@ -7975,11 +8078,4 @@ section,
     width: 100%;
     justify-content: center;
   }
-}
-
-/*--------------------------------------------------------------
-# Starter Section Section
---------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
 }
