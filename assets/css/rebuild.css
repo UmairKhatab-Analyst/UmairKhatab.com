@@ -391,10 +391,16 @@ body {
   .profile-badge small { font-size: 0.7rem; }
   .hero-text-content h1 { font-size: 2.2rem; }
   .btn-cta { padding: 8px 16px; font-size: 12px; }
-  .header-actions { gap: 10px; }
+  .header-actions { gap: 8px; }
   .nav-container { padding: 0 15px; }
-  .logo-rebuild { font-size: 20px; }
-  .header-actions .btn-cta { display: none; }
+  .logo-rebuild { font-size: 16px; }
+  .header-actions .btn-cta { 
+    display: inline-block;
+    padding: 6px 10px;
+    font-size: 11px;
+    letter-spacing: -0.5px;
+  }
+  .mobile-toggle { font-size: 26px; }
 }
 
 
