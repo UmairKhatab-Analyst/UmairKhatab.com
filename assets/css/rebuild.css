@@ -15,11 +15,15 @@
 }
 
 /* --- Base Setup --- */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
 body {
   background-color: var(--bg-dark);
   color: var(--text-main);
   font-family: 'Inter', sans-serif;
-  overflow-x: hidden;
   margin: 0;
   padding: 0;
   line-height: 1.6;
@@ -411,7 +415,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-top: 100px;
+  padding-bottom: 50px;
+  overflow-y: auto;
   gap: 30px;
   transform: translateY(-100%);
   transition: 0.5s cubic-bezier(0.77, 0, 0.175, 1);
