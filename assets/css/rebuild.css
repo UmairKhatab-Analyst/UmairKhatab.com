@@ -952,3 +952,33 @@ html.aos-enabled [data-aos].aos-animate {
   animation: floatGently 2.5s ease-in-out infinite;
   border-color: rgba(0, 212, 170, 0.4);
 }
+
+/* --- FYP Ribbon Badge --- */
+.fyp-ribbon {
+  position: absolute;
+  top: 18px;
+  right: -40px;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  color: #fff;
+  padding: 6px 50px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transform: rotate(45deg);
+  z-index: 10;
+  box-shadow: 0 4px 15px rgba(108, 99, 255, 0.4);
+}
+
+/* --- FYP Video Preview Transitions --- */
+.project-preview-container img {
+  transition: opacity 0.4s ease;
+}
+
+.project-preview-container .fyp-video-preview {
+  transition: opacity 0.4s ease;
+}
+
+.project-preview-container .fyp-video-trigger {
+  transition: opacity 0.3s ease;
+}
